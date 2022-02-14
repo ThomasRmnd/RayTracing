@@ -68,6 +68,26 @@ scene& scene::operator=(const scene& other)
 	return *this;
 }
 
+unsigned int scene::get_nb_objects() const
+{
+	return nb_objects;
+}
+
+unsigned int scene::get_nb_lumieres() const
+{
+	return nb_lumieres;
+}
+
+object* scene::get_object_from_index(unsigned int i) const
+{
+	return &objects[i];
+}
+
+lumiere* scene::get_lumiere_from_index(unsigned int i) const
+{
+	return &lumieres[i];
+}
+
 scene& scene::add_object(const object& _object)
 {
 	nb_objects++;

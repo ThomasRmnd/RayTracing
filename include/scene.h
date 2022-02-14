@@ -19,6 +19,12 @@ public:
 
 	scene& operator=(const scene&);
 
+	unsigned int get_nb_objects() const;
+	unsigned int get_nb_lumieres() const;
+
+	object* get_object_from_index(unsigned int) const;
+	lumiere* get_lumiere_from_index(unsigned int) const;
+
 	scene& add_object(const object&);
 	scene& add_lumiere(const lumiere&);
 };
