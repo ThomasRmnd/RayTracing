@@ -1,7 +1,21 @@
 #include "Platform/Platform.hpp"
 
+#include "../include/rayon.h"
+#include "../include/sphere.h"
+
 int main()
 {
+	sphere s(vector3(1., 0., -3.), -2.);
+	rayon r(vector3(0., 0., 0.), vector3(0., 0., -1.));
+	std::vector<vector3> result = s.intersection(r);
+
+	std::cout << result.size() << std::endl;
+	for (unsigned int i = 0; i < result.size(); i++)
+	{
+		vector3 element = result[i];
+		std::cout << element.x << " " << element.y << " " << element.z << std::endl;
+	}
+
 	util::Platform platform;
 
 #if defined(_DEBUG)
