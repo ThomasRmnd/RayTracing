@@ -10,5 +10,5 @@ public:
 
 	vector3 dir;
 
-	rayon::rayon(const vector3&, const vector3&);
+	rayon(const vector3&, const vector3&);
 };

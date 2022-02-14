@@ -2,81 +2,79 @@
 
 #include <cmath>
 
-class vector3 {
-
+class vector3
+{
 public:
+	float x;
 
-    float x;
+	float y;
 
-    float y;
+	float z;
 
-    float z;
+	// Construtors && Destructor
 
-    // Construtors && Destructor
+	vector3();
 
-    vector3();
+	vector3(float, float, float);
 
-    vector3(float,float,float);
+	vector3(const vector3&, const vector3&);
 
-    vector3(const vector3&,const vector3&);
+	vector3(const vector3&) = default;
 
-    vector3(const vector3&) = default;
+	static vector3 spherical(float, float, float);
 
-    static vector3 spherical(float,float,float);
+	~vector3() = default;
 
-    ~vector3() = default;
+	// Assignment operators
 
-    // Assignment operators
+	vector3& operator=(const vector3&) = default;
 
-    vector3& operator=(const vector3&) = default;
+	vector3& operator+=(const vector3&);
 
-    vector3& operator+=(const vector3&);
+	vector3& operator-=(const vector3&);
 
-    vector3& operator-=(const vector3&);
+	vector3& operator*=(float);
 
-    vector3& operator*=(float);
+	vector3& operator/=(float);
 
-    vector3& operator/=(float);
+	// Other methods
 
-    // Other methods
+	float norm() const;
 
-    float norm() const;
+	float norm_2() const;
 
-    float norm_2() const;
+	float theta() const;
 
-    float theta() const;
+	float phi() const;
 
-    float phi() const;
-
-    void normalize();
-
+	void normalize();
 };
 
-// Arithmetic operators 
+// Arithmetic operators
 
-vector3 operator+(const vector3&,const vector3&);
+vector3 operator+(const vector3&, const vector3&);
 vector3 operator+(const vector3&);
 
-vector3 operator-(const vector3&,const vector3&);
+vector3 operator-(const vector3&, const vector3&);
 vector3 operator-(const vector3&);
 
-vector3 operator*(const vector3&,float);
-vector3 operator*(float,const vector3&);
+vector3 operator*(const vector3&, float);
+vector3 operator*(float, const vector3&);
 
-vector3 operator/(const vector3&,float);
+vector3 operator/(const vector3&, float);
 
 // Logical operators
 
-bool operator==(const vector3&,const vector3&);
+bool operator==(const vector3&, const vector3&);
 
-bool operator!=(const vector3&,const vector3&);
+bool operator!=(const vector3&, const vector3&);
 
-// Other functions 
+// Other functions
 
-float dot(const vector3&,const vector3&);
+float dot(const vector3&, const vector3&);
 
-vector3 cross(const vector3&,const vector3&);
+vector3 cross(const vector3&, const vector3&);
 
-float angle(const vector3&,const vector3&);
+float angle(const vector3&, const vector3&);
 
-float distance(const vector3&,const vector3&);
+float distance(const vector3&, const vector3&);

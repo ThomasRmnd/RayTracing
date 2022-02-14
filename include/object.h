@@ -7,5 +7,7 @@
 class object
 {
 public:
+	object& operator=(const object&) = default;
+
 	virtual std::vector<vector3> intersection();
 };

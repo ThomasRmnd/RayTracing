@@ -1,4 +1,4 @@
-#include "sphere.h"
+#include "../../include/sphere.h"
 
 sphere::sphere(const vector3& _position, float _radius) :
 	position(_position),

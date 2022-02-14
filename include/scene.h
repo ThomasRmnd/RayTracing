@@ -6,14 +6,14 @@
 class scene
 {
 private:
-	object* objects;
 	unsigned int nb_objects;
-	lumiere* lumieres;
 	unsigned int nb_lumieres;
+	object* objects;
+	lumiere* lumieres;
 
 public:
 	scene();
-	scene(const object*, const lumiere*, unsigned int, unsigned int);
+	scene(object*, lumiere*, unsigned int, unsigned int);
 	scene(const scene&);
 	~scene();
 

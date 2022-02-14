@@ -1,4 +1,4 @@
-#include "vector3.h"
+#include "../../include/vector3.h"
 
 vector3::vector3() :
 	x(0),

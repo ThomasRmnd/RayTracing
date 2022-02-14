@@ -1,4 +1,4 @@
-#include "camera.h"
+#include "../../include/camera.h"
 
 camera::camera(const vector3& _position, const vector3& _directionVue, float _d, unsigned int resolEcran[2], float bornes[4]) :
 	position(_position),

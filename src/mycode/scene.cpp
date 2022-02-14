@@ -1,16 +1,16 @@
-#include "scene.h"
+#include "../../include/scene.h"
 
-scene::scene()
+scene::scene() :
+	nb_objects(0),
+	nb_lumieres(0)
 {
 	objects = NULL;
 	lumieres = NULL;
-	nb_objects = 0;
-	nb_lumieres = 0;
 }
 
-scene::scene(const object* _objects, const lumiere* _lumieres, unsigned int _nb_objects, unsigned int _nb_lumieres) :
-	nb_lumieres(_nb_lumieres),
-	nb_objects(_nb_objects)
+scene::scene(object* _objects, lumiere* _lumieres, unsigned int _nb_objects, unsigned int _nb_lumieres) :
+	nb_objects(_nb_objects),
+	nb_lumieres(_nb_lumieres)
 {
 	objects = new object[nb_objects];
 	lumieres = new lumiere[nb_lumieres];
@@ -79,6 +79,7 @@ scene& scene::add_object(const object& _object)
 	new_objects[nb_objects - 1] = _object;
 	delete[] objects;
 	objects = new_objects;
+	return *this;
 }
 
 scene& scene::add_lumiere(const lumiere& _lumiere)
@@ -89,7 +90,8 @@ scene& scene::add_lumiere(const lumiere& _lumiere)
 	{
 		new_lumieres[i] = lumieres[i];
 	}
-	new_lumieres[nb_lumieres - 1];
+	new_lumieres[nb_lumieres - 1] = _lumiere;
 	delete[] lumieres;
 	lumieres = new_lumieres;
+	return *this;
 }

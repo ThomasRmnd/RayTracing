@@ -1,4 +1,4 @@
-#include "plan.h"
+#include "../../include/plan.h"
 
 plan::plan(const vector3& _org, const vector3& _normal) :
 	org(_org),
