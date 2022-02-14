@@ -6,6 +6,9 @@
 #include "ecran.h"
 #include "rayon.h"
 #include "scene.h"
+#include "window.h"
+
+class window;
 
 class render
 {
@@ -26,4 +29,6 @@ public:
 	render& change_ecran(ecran&);
 
 	void lancer0();
+
+	friend window;
 };

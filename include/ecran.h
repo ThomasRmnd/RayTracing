@@ -16,6 +16,8 @@ public:
 
 	ecran& operator=(const ecran&);
 
+	unsigned int get_nb_row() const;
+	unsigned int get_nb_col() const;
 	vector3 at(unsigned int, unsigned int) const;
 	ecran& change(unsigned int, unsigned int, const vector3&);
 };

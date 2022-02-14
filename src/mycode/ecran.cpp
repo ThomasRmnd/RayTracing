@@ -56,6 +56,16 @@ ecran& ecran::operator=(const ecran& other)
 	return *this;
 }
 
+unsigned int ecran::get_nb_row() const
+{
+	return nb_row;
+}
+
+unsigned int ecran::get_nb_col() const
+{
+	return nb_col;
+}
+
 vector3 ecran::at(unsigned int i, unsigned int j) const
 {
 	return matrix[i][j];
