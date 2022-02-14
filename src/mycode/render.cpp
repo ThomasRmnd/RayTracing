@@ -41,12 +41,13 @@ void render::lancer0()
 			rayon r(p_camera->position, vector3(p_camera->position, M));
 			for (unsigned int index = 0; index < p_scene->get_nb_objects(); index++)
 			{
-				object* current_object = p_scene->get_object_from_index(i);
+				object* current_object = p_scene->get_object_from_index(index);
 				std::vector<vector3> ss = current_object->intersection(r);
 				s.insert(s.end(), ss.begin(), ss.end());
-				if (s.size())
-					p_ecran->change(p_camera->nb_pixel_y - 1 - j, i, vector3(1., 1., 1.));
 			}
+			if (s.size())
+				p_ecran->change(p_camera->nb_pixel_y - 1 - j, i, vector3(50., 50., 50.));
+			p_ecran->change(0, 0, vector3(225., 225., 225.));
 		}
 	}
 }

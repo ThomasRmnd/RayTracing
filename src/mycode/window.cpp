@@ -5,7 +5,7 @@ window::window(sf::RenderWindow& _p_rwindow, render& _p_render)
 	p_render = &_p_render;
 	p_rwindow = &_p_rwindow;
 	p_image = new sf::Image();
-	p_image->create(p_render->p_ecran->get_nb_row(), p_render->p_ecran->get_nb_row());
+	p_image->create(p_render->p_ecran->get_nb_col(), p_render->p_ecran->get_nb_row());
 	p_texture = new sf::Texture();
 	p_texture->loadFromImage(*p_image);
 	p_sprite = new sf::Sprite();
@@ -31,13 +31,14 @@ bool window::isOpen() const
 
 void window::update()
 {
-	unsigned int n_x = p_render->p_ecran->get_nb_row();
-	unsigned int n_y = p_render->p_ecran->get_nb_col();
+	p_render->lancer0();
+	unsigned int n_x = p_render->p_ecran->get_nb_col();
+	unsigned int n_y = p_render->p_ecran->get_nb_row();
 	for (unsigned int i = 0; i < n_x; i++)
 	{
 		for (unsigned int j = 0; j < n_y; j++)
 		{
-			vector3 value = p_render->p_ecran->at(i, j);
+			vector3 value = p_render->p_ecran->at(j, i);
 			p_image->setPixel(i, j, sf::Color((int)value.x, (int)value.y, (int)value.z));
 		}
 	}
