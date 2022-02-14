@@ -2,16 +2,14 @@
 
 #include "object.h"
 
-class sphere : public object {
-
+class sphere : public object
+{
 public:
+	vector3 position;
 
-    vector3 position;
+	float radius;
 
-    float radius;
+	sphere(const vector3&, float);
 
-    sphere(const vector3&,float);
-
-    virtual std::vector<vector3> intersection();
-
+	virtual std::vector<vector3> intersection();
 };

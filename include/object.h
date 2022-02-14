@@ -6,7 +6,6 @@
 
 class object
 {
-
 public:
-	virtual std::vector<vector3> intersection() = 0;
+	virtual std::vector<vector3> intersection();
 };

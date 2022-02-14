@@ -13,12 +13,12 @@ private:
 
 public:
 	scene();
-	scene(const object*, const lumiere*);
+	scene(const object*, const lumiere*, unsigned int, unsigned int);
 	scene(const scene&);
 	~scene();
 
 	scene& operator=(const scene&);
 
 	scene& add_object(const object&);
-	scene& add_lumieres(const lumiere&);
+	scene& add_lumiere(const lumiere&);
 };
