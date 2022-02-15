@@ -21,6 +21,6 @@ class object
 public:
 	object& operator=(const object&) = default;
 
-	virtual std::vector<data_intersection> intersection(const rayon&);
-	virtual vector3 vector_normal(const vector3&);
+	virtual std::vector<data_intersection> intersection(const rayon&) = 0;
+	virtual vector3 vector_normal(const vector3&) = 0;
 };

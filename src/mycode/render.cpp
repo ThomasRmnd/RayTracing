@@ -47,7 +47,6 @@ void render::lancer0()
 			}
 			if (s.size())
 				p_ecran->change(p_camera->nb_pixel_y - 1 - j, i, vector3(50., 50., 50.));
-			p_ecran->change(0, 0, vector3(225., 225., 225.));
 		}
 	}
 }
