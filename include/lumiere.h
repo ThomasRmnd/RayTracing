@@ -4,9 +4,7 @@
 
 class lumiere
 {
-private:
+public:
 	vector3 org;
 	vector3 I;
-
-public:
 };

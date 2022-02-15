@@ -1,9 +1,10 @@
 #pragma once
 
-#include <iostream>
+#include <algorithm>
 #include <vector>
 
 #include "rayon.h"
+#include "scene.h"
 #include "vector3.h"
 
 class object;
@@ -23,4 +24,5 @@ public:
 
 	virtual std::vector<data_intersection> intersection(const rayon&) = 0;
 	virtual vector3 vector_normal(const vector3&) = 0;
+	vector3 diffuse(const vector3&, const scene&);
 };
