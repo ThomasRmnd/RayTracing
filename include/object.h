@@ -39,5 +39,5 @@ public:
 
 	vector3 diffuse(const vector3&, const scene&);
 	vector3 phong(const vector3&, const vector3&, const scene&);
-	vector3 ambiant(const scene&);
+	vector3 ambiant(const vector3&, const scene&);
 };

@@ -12,7 +12,7 @@ int main()
 	float bornes[4] = { -3., 3., -2., 2. };
 	camera my_camera(vector3(0., 0., 5.), vector3(0., 0., -1.), 5., resolEcran, bornes);
 
-	sphere s1(vector3(2., 0., -5.), 1., vector3(0.8, 0.8, 0.8), 0.1, 1.0, 1.0);
+	sphere s1(vector3(2., -1., -5.), 1., vector3(0.8, 0.8, 0.8), 0.1, 1.0, 1.0);
 	sphere s2(vector3(-1., -1., -3.), 1., vector3(0.8, 0.3, 0.3), 0.1, 1.0, 0.0);
 	sphere s3(vector3(0., 1., -12.), 3., vector3(1.0, 0.8, 0.4), 0.1, 1.0, 1.0);
 	plan p(vector3(0., -2., 0.), vector3(0., 1., 0.), vector3(0.9, 0.6, 0.6), 0.1, 1.0, 0.0);
