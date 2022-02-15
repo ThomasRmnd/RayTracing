@@ -1,6 +1,6 @@
 #include "../../include/window.h"
 
-window::window(sf::RenderWindow& _p_rwindow, render& _p_render)
+window::window(sf::RenderWindow& _p_rwindow, render& _p_render, controller& _p_controller)
 {
 	p_render = &_p_render;
 	p_rwindow = &_p_rwindow;
@@ -10,6 +10,7 @@ window::window(sf::RenderWindow& _p_rwindow, render& _p_render)
 	p_texture->loadFromImage(*p_image);
 	p_sprite = new sf::Sprite();
 	p_sprite->setTexture(*p_texture);
+	p_controller = &_p_controller;
 }
 
 window::~window()
@@ -29,8 +30,14 @@ bool window::isOpen() const
 	return p_rwindow->isOpen();
 }
 
+void window::check_events(const sf::Event& event)
+{
+	p_controller->check_event(event);
+}
+
 void window::update()
 {
+	p_controller->update();
 	p_render->lancer4(3, 3);
 	unsigned int n_x = p_render->p_ecran->get_nb_col();
 	unsigned int n_y = p_render->p_ecran->get_nb_row();
@@ -56,4 +63,14 @@ bool window::pollEvent(sf::Event& event)
 void window::close()
 {
 	p_rwindow->close();
+}
+
+bool window::is_in(const sf::Vector2i& position)
+{
+	return ((position.x >= 0) && (position.x <= (int)p_rwindow->getSize().x) && (position.y >= 0) && (position.y <= (int)p_rwindow->getSize().y));
+}
+
+sf::RenderWindow* window::get_window()
+{
+	return p_rwindow;
 }

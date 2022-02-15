@@ -1,5 +1,6 @@
 #include "Platform/Platform.hpp"
 
+#include "../include/controller.h"
 #include "../include/lumiere.h"
 #include "../include/plan.h"
 #include "../include/rayon.h"
@@ -8,7 +9,7 @@
 
 int main()
 {
-	unsigned int resolEcran[2] = { 1200, 800 };
+	unsigned int resolEcran[2] = { 300, 200 };
 	float bornes[4] = { -3., 3., -2., 2. };
 	camera my_camera(vector3(0., 0., 5.), vector3(0., 0., -1.), 5., resolEcran, bornes);
 
@@ -26,7 +27,9 @@ int main()
 
 	sf::RenderWindow rwindow;
 	render my_render(my_camera, my_scene);
-	window my_window(rwindow, my_render);
+	controller my_controller(&my_camera, NULL);
+	window my_window(rwindow, my_render, my_controller);
+	my_controller.change_window(&my_window);
 
 	my_window.create(sf::VideoMode(resolEcran[0], resolEcran[1]), "SFML works!");
 
@@ -39,7 +42,7 @@ int main()
 			if (event.type == sf::Event::Closed)
 				my_window.close();
 		}
-
+		my_window.check_events(event);
 		my_window.update();
 	}
 	return 0;
