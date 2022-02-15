@@ -12,6 +12,8 @@ struct data_intersection
 {
 	object* ptr;
 	vector3 point;
+
+	data_intersection(object*, const vector3&);
 };
 
 class object

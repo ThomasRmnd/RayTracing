@@ -1,10 +1,9 @@
 #include "../../include/object.h"
 
-std::vector<vector3> object::intersection(const rayon& _rayon)
+std::vector<data_intersection> object::intersection(const rayon& _rayon)
 {
 	(void)_rayon;
-	std::vector<vector3> result;
-	result.push_back(vector3());
+	std::vector<data_intersection> result;
 	return result;
 }
 

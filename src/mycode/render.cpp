@@ -36,13 +36,13 @@ void render::lancer0()
 	{
 		for (unsigned int j = 0; j < p_camera->nb_pixel_y; j++)
 		{
-			std::vector<vector3> s;
+			std::vector<data_intersection> s;
 			vector3 M(p_camera->point(i, j));
 			rayon r(p_camera->position, vector3(p_camera->position, M));
 			for (unsigned int index = 0; index < p_scene->get_nb_objects(); index++)
 			{
 				object* current_object = p_scene->get_object_from_index(index);
-				std::vector<vector3> ss = current_object->intersection(r);
+				std::vector<data_intersection> ss = current_object->intersection(r);
 				s.insert(s.end(), ss.begin(), ss.end());
 			}
 			if (s.size())

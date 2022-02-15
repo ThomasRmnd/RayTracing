@@ -11,6 +11,6 @@ public:
 
 	plan(const vector3&, const vector3&);
 
-	virtual std::vector<vector3> intersection(const rayon&);
+	virtual std::vector<data_intersection> intersection(const rayon&);
 	virtual vector3 vector_normal(const vector3&);
 };
