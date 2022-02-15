@@ -5,6 +5,8 @@
 #include "lumiere.h"
 #include "object.h"
 
+class object;
+
 class scene
 {
 private:

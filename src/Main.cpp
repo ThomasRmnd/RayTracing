@@ -1,5 +1,6 @@
 #include "Platform/Platform.hpp"
 
+#include "../include/lumiere.h"
 #include "../include/plan.h"
 #include "../include/rayon.h"
 #include "../include/sphere.h"
@@ -15,11 +16,15 @@ int main()
 	sphere s2(vector3(-1., -1., -3.), 1.);
 	sphere s3(vector3(0., 1., -20.), 3.);
 	plan p(vector3(0., -2., 0.), vector3(0., 1., 0.));
+	lumiere l1(vector3(-100., 20., 100.), vector3(0.7, 0.7, 0.7));
+	lumiere l2(vector3(100., 100., 100.), vector3(0.7, 0.7, 0.7));
 	scene my_scene;
 	my_scene.add_object(&s1);
 	my_scene.add_object(&s2);
 	my_scene.add_object(&s3);
 	my_scene.add_object(&p);
+	my_scene.add_lumiere(&l1);
+	my_scene.add_lumiere(&l2);
 
 	sf::RenderWindow rwindow;
 	render my_render(my_camera, my_scene);

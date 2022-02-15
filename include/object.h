@@ -7,6 +7,8 @@
 #include "scene.h"
 #include "vector3.h"
 
+class scene;
+
 class object;
 
 struct data_intersection
@@ -15,6 +17,8 @@ struct data_intersection
 	vector3 point;
 
 	data_intersection(object*, const vector3&);
+
+	data_intersection& operator=(const data_intersection&) = default;
 };
 
 class object

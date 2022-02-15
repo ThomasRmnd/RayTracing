@@ -1,5 +1,6 @@
 #pragma once
 
+#include <algorithm>
 #include <vector>
 
 #include "camera.h"
@@ -17,6 +18,8 @@ private:
 	scene* p_scene;
 	ecran* p_ecran;
 
+	data_intersection plusProche(const vector3&, const std::vector<data_intersection>&);
+
 public:
 	render(camera&, scene&);
 	render(const render&) = default;
@@ -29,6 +32,7 @@ public:
 	render& change_ecran(ecran&);
 
 	void lancer0();
+	void lancer1();
 
 	friend window;
 };
