@@ -8,15 +8,15 @@
 
 int main()
 {
-	unsigned int resolEcran[2] = { 300, 200 };
+	unsigned int resolEcran[2] = { 1200, 800 };
 	float bornes[4] = { -3., 3., -2., 2. };
 	camera my_camera(vector3(0., 0., 5.), vector3(0., 0., -1.), 5., resolEcran, bornes);
 
-	sphere s1(vector3(2., -1., -5.), 1., vector3(0.8, 0.8, 0.8), 0.1, 1.0, 1.0);
-	sphere s2(vector3(-1., -1., -3.), 1., vector3(0.8, 0.3, 0.3), 0.1, 1.0, 0.0);
-	sphere s3(vector3(0., 1., -12.), 3., vector3(1.0, 0.8, 0.4), 0.1, 1.0, 1.0);
-	plan p(vector3(0., -2., 0.), vector3(0., 1., 0.), vector3(0.9, 0.6, 0.6), 0.1, 1.0, 0.0);
-	lumiere l1(vector3(60.0, 50.0, 100.0), vector3(1.0, 1.0, 1.0), vector3(1.0, 1.0, 1.0));
+	sphere s1(vector3(1.0f, -1.0f, -1.0f), 1.0f, vector3(0.8f, 0.8f, 0.3f), 0.1f, 1.0f, 1.0f);
+	sphere s2(vector3(-3.0f, -1.0f, -3.0f), 1.0f, vector3(0.8f, 0.3f, 0.3f), 0.1f, 1.0f, 0.0f);
+	sphere s3(vector3(0.0f, 0.0f, -5.0f), 2.0f, vector3(0.8f, 0.8f, 0.8f), 0.1f, 1.0f, 1.0f);
+	plan p(vector3(0.0f, -2.0f, 0.0f), vector3(0.0f, 1.0f, 0.0f), vector3(0.9f, 0.6f, 0.6f), 0.1f, 0.5f, 0.6f);
+	lumiere l1(vector3(60.0f, 50.0f, 100.0f), vector3(1.0f, 1.0f, 1.0f), vector3(0.5f, 0.5f, 0.5f));
 	scene my_scene;
 	my_scene.add_object(&s1);
 	my_scene.add_object(&s2);
@@ -28,7 +28,7 @@ int main()
 	render my_render(my_camera, my_scene);
 	window my_window(rwindow, my_render);
 
-	my_window.create(sf::VideoMode(300, 200), "SFML works!");
+	my_window.create(sf::VideoMode(resolEcran[0], resolEcran[1]), "SFML works!");
 
 	sf::Event event;
 
