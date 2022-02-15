@@ -12,19 +12,17 @@ int main()
 	float bornes[4] = { -3., 3., -2., 2. };
 	camera my_camera(vector3(0., 0., 5.), vector3(0., 0., -1.), 5., resolEcran, bornes);
 
-	sphere s1(vector3(2., 0., -5.), 2.);
-	sphere s2(vector3(-1., -1., -3.), 1.);
-	sphere s3(vector3(0., 1., -20.), 3.);
-	plan p(vector3(0., -2., 0.), vector3(0., 1., 0.));
-	lumiere l1(vector3(-100., 20., 100.), vector3(0.7, 0.7, 0.7));
-	lumiere l2(vector3(100., 100., 100.), vector3(0.7, 0.7, 0.7));
+	sphere s1(vector3(2., 0., -5.), 1., vector3(0.8, 0.8, 0.8), 0.1, 1.0, 1.0);
+	sphere s2(vector3(-1., -1., -3.), 1., vector3(0.8, 0.3, 0.3), 0.1, 1.0, 0.0);
+	sphere s3(vector3(0., 1., -12.), 3., vector3(1.0, 0.8, 0.4), 0.1, 1.0, 1.0);
+	plan p(vector3(0., -2., 0.), vector3(0., 1., 0.), vector3(0.9, 0.6, 0.6), 0.1, 1.0, 0.0);
+	lumiere l1(vector3(60.0, 50.0, 100.0), vector3(1.0, 1.0, 1.0), vector3(1.0, 1.0, 1.0));
 	scene my_scene;
 	my_scene.add_object(&s1);
 	my_scene.add_object(&s2);
 	my_scene.add_object(&s3);
 	my_scene.add_object(&p);
 	my_scene.add_lumiere(&l1);
-	my_scene.add_lumiere(&l2);
 
 	sf::RenderWindow rwindow;
 	render my_render(my_camera, my_scene);

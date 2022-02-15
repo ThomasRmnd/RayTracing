@@ -1,6 +1,7 @@
 #include "../../include/plan.h"
 
-plan::plan(const vector3& _org, const vector3& _normal) :
+plan::plan(const vector3& _org, const vector3& _normal, const vector3& _color, float _ka, float _kd, float _ks) :
+	object(_color, _ka, _kd, _ks),
 	org(_org),
 	normal(_normal)
 {}

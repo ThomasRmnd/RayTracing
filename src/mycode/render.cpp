@@ -51,7 +51,7 @@ void render::lancer0()
 	}
 }
 
-data_intersection render::plusProche(const vector3& B, const std::vector<data_intersection>& s)
+data_intersection render::plusProche(const vector3& B, const std::vector<data_intersection>& s) const
 {
 	data_intersection data0 = s[0];
 	for (unsigned int i = 0; i < s.size(); i++)
@@ -86,6 +86,63 @@ void render::lancer1()
 				vector3 I = data.ptr->diffuse(data.point, *p_scene);
 				p_ecran->change(p_camera->nb_pixel_y - 1 - j, i, 200.0f * vector3(std::min(I.x, 1.0f), std::min(I.y, 1.0f), std::min(I.z, 1.0f)));
 			}
+		}
+	}
+}
+
+void render::lancer2()
+{
+	for (unsigned int i = 0; i < p_camera->nb_pixel_x; i++)
+	{
+		for (unsigned int j = 0; j < p_camera->nb_pixel_y; j++)
+		{
+			std::vector<data_intersection> s;
+			vector3 M(p_camera->point(i, j));
+			rayon r(p_camera->position, vector3(p_camera->position, M));
+			for (unsigned int index = 0; index < p_scene->get_nb_objects(); index++)
+			{
+				object* current_object = p_scene->get_object_from_index(index);
+				std::vector<data_intersection> ss = current_object->intersection(r);
+				s.insert(s.end(), ss.begin(), ss.end());
+			}
+			if (s.size())
+			{
+				data_intersection data = plusProche(p_camera->position, s);
+				vector3 I = (data.ptr->diffuse(data.point, *p_scene)) + (data.ptr->phong(data.point, p_camera->position, *p_scene));
+				p_ecran->change(p_camera->nb_pixel_y - 1 - j, i, 200.0f * vector3(std::min(I.x, 1.0f), std::min(I.y, 1.0f), std::min(I.z, 1.0f)));
+			}
+		}
+	}
+}
+
+vector3 render::lancerRayon(const rayon& r) const
+{
+	std::vector<data_intersection> s;
+	for (unsigned int index = 0; index < p_scene->get_nb_objects(); index++)
+	{
+		object* current_object = p_scene->get_object_from_index(index);
+		std::vector<data_intersection> ss = current_object->intersection(r);
+		s.insert(s.end(), ss.begin(), ss.end());
+	}
+	if (s.size())
+	{
+		data_intersection data = plusProche(p_camera->position, s);
+		return data.ptr->illumination(data.point, p_camera->position, *p_scene);
+	}
+	else
+		return vector3(0.5, 0.5, 1.);
+}
+
+void render::lancer3()
+{
+	for (unsigned int i = 0; i < p_camera->nb_pixel_x; i++)
+	{
+		for (unsigned int j = 0; j < p_camera->nb_pixel_y; j++)
+		{
+			vector3 M(p_camera->point(i, j));
+			rayon r(p_camera->position, vector3(p_camera->position, M));
+			vector3 I = lancerRayon(r);
+			p_ecran->change(p_camera->nb_pixel_y - 1 - j, i, 200.0f * vector3(std::min(I.x, 1.0f), std::min(I.y, 1.0f), std::min(I.z, 1.0f)));
 		}
 	}
 }

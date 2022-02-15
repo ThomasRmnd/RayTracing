@@ -11,7 +11,7 @@ public:
 
 	float radius;
 
-	sphere(const vector3&, float);
+	sphere(const vector3&, float, const vector3&, float, float, float);
 
 	virtual std::vector<data_intersection> intersection(const rayon&);
 	virtual vector3 vector_normal(const vector3&);

@@ -1,12 +1,7 @@
 #include "../../include/sphere.h"
 
-data_intersection::data_intersection(object* _ptr, const vector3& _point) :
-	point(_point)
-{
-	ptr = _ptr;
-}
-
-sphere::sphere(const vector3& _position, float _radius) :
+sphere::sphere(const vector3& _position, float _radius, const vector3& _color, float _ka, float _kd, float _ks) :
+	object(_color, _ka, _kd, _ks),
 	position(_position),
 	radius(_radius)
 {}

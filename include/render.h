@@ -18,7 +18,8 @@ private:
 	scene* p_scene;
 	ecran* p_ecran;
 
-	data_intersection plusProche(const vector3&, const std::vector<data_intersection>&);
+	data_intersection plusProche(const vector3&, const std::vector<data_intersection>&) const;
+	vector3 lancerRayon(const rayon&) const;
 
 public:
 	render(camera&, scene&);
@@ -33,6 +34,8 @@ public:
 
 	void lancer0();
 	void lancer1();
+	void lancer2();
+	void lancer3();
 
 	friend window;
 };
