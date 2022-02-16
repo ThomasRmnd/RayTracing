@@ -1,6 +1,7 @@
 #include "Platform/Platform.hpp"
 
 #include "../include/controller.h"
+#include "../include/eclairement.h"
 #include "../include/lumiere.h"
 #include "../include/plan.h"
 #include "../include/rayon.h"
@@ -25,8 +26,13 @@ int main()
 	my_scene.add_object(&p);
 	my_scene.add_lumiere(&l1);
 
+	diffuse my_diffuse(NULL);
+	phong my_phong(NULL);
+	ambiant my_ambiant(NULL);
+	std::vector<eclairement*> types_of_eclairement = { &my_ambiant };
+
 	sf::RenderWindow rwindow;
-	render my_render(my_camera, my_scene);
+	render my_render(my_camera, my_scene, types_of_eclairement);
 	controller my_controller(&my_camera, NULL);
 	window my_window(rwindow, my_render, my_controller);
 	my_controller.change_window(&my_window);

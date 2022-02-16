@@ -9,7 +9,6 @@
 #include "vector3.h"
 
 class scene;
-
 class object;
 
 struct data_intersection
@@ -24,7 +23,6 @@ struct data_intersection
 
 class object
 {
-private:
 public:
 	vector3 color;
 	float ka, kd, ks;
@@ -35,9 +33,4 @@ public:
 
 	virtual std::vector<data_intersection> intersection(const rayon&) = 0;
 	virtual vector3 vector_normal(const vector3&) = 0;
-	vector3 illumination(const vector3&, const vector3&, const scene&);
-
-	vector3 diffuse(const vector3&, const scene&);
-	vector3 phong(const vector3&, const vector3&, const scene&);
-	vector3 ambiant(const vector3&, const scene&);
 };

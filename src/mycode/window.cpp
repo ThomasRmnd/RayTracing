@@ -38,7 +38,7 @@ void window::check_events(const sf::Event& event)
 void window::update()
 {
 	p_controller->update();
-	p_render->lancer4(3, 3);
+	p_render->lancer(3, 3);
 	unsigned int n_x = p_render->p_ecran->get_nb_col();
 	unsigned int n_y = p_render->p_ecran->get_nb_row();
 	for (unsigned int i = 0; i < n_x; i++)

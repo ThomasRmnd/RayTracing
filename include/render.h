@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "camera.h"
+#include "eclairement.h"
 #include "ecran.h"
 #include "rayon.h"
 #include "scene.h"
@@ -17,13 +18,13 @@ private:
 	camera* p_camera;
 	scene* p_scene;
 	ecran* p_ecran;
+	std::vector<eclairement*> types_of_eclairement;
 
 	data_intersection plusProche(const vector3&, const std::vector<data_intersection>&) const;
-	vector3 lancerRayon(const rayon&) const;
 	vector3 lancerRayon(const rayon&, float, unsigned int, unsigned int);
 
 public:
-	render(camera&, scene&);
+	render(camera&, scene&, const std::vector<eclairement*>&);
 	render(const render&) = default;
 	~render();
 
@@ -33,11 +34,9 @@ public:
 	render& change_scene(scene&);
 	render& change_ecran(ecran&);
 
-	void lancer0();
-	void lancer1();
-	void lancer2();
-	void lancer3();
-	void lancer4(unsigned int, unsigned int);
+	void lancer(unsigned int, unsigned int);
+
+	vector3 illumination(const vector3&, const vector3&, object*, const scene&);
 
 	friend window;
 };
