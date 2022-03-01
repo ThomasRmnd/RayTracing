@@ -10,7 +10,7 @@
 
 int main()
 {
-	unsigned int resolEcran[2] = { 600, 400 };
+	unsigned int resolEcran[2] = { 1600, 1000 };
 	float bornes[4] = { -3., 3., -2., 2. };
 	camera my_camera(vector3(0., 0., 5.), vector3(0., 0., -1.), 5., resolEcran, bornes);
 
